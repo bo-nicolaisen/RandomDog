@@ -3,26 +3,29 @@
 let app=document.getElementById("app");
 
 // load your data
-loadData();
+let myFetchedData=loadData('https://dog.ceo/api/breeds/image/random');
+
 
 
 //Load Data function
-function loadData(){
+function loadData(myUrl){
 
     console.log("fetching data");
    
 
-    fetch('https://dog.ceo/api/breeds/image/random')
+    fetch(myUrl)
+
     .then((response) => {
-        //return response.text();
+      // wait for fetch to complete
         return response.json();
       })
+      
       .then((data) => {
         // do something with 'data'
-
-        //let myData=JSON.parse(data);
         buildView(data.message);
+      
       })
+
       .catch(
 
       );
