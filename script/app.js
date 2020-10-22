@@ -10,7 +10,7 @@ loadData();
 function loadData(){
 
     console.log("fetching data");
-    app.textContent="Loading data";
+   
 
     fetch('https://dog.ceo/api/breeds/image/random')
     .then((response) => {
@@ -19,6 +19,7 @@ function loadData(){
       })
       .then((data) => {
         // do something with 'data'
+
         //let myData=JSON.parse(data);
         buildView(data.message);
       })
@@ -29,5 +30,9 @@ function loadData(){
 
 // dom setup
 function buildView(myUrl){
-    app.textContent=myUrl;
+   
+let dogImg=document.createElement("img");
+dogImg.src=myUrl;
+app.appendChild(dogImg);
+
 }
